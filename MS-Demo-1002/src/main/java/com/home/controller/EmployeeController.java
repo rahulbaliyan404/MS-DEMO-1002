@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.home.bean.Employee;
 
 
-@RequestMapping(value = "/employeeApi")
+@RequestMapping(value = "/empApi")
 public interface EmployeeController {
 
 	@GetMapping(value = "/employee/{id}")
