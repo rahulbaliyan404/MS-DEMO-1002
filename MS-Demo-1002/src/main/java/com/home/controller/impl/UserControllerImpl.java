@@ -10,33 +10,33 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.home.bean.Employee;
-import com.home.controller.EmployeeController;
-import com.home.logic.EmployeeLogic;
-import com.home.repository.EmployeeRepository;
+import com.home.bean.User;
+import com.home.controller.UserController;
+import com.home.logic.UserLogic;
+import com.home.repository.UserRepository;
 
 @RestController
-public class EmployeeControllerImpl implements EmployeeController {
+public class UserControllerImpl implements UserController {
 
 	@Autowired
-	private EmployeeLogic employeeLogic;
+	private UserLogic employeeLogic;
 
 	@Autowired
-	private EmployeeRepository employeeRepository;
+	private UserRepository employeeRepository;
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeControllerImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserControllerImpl.class);
 
 	@Override
-	public Optional<Employee> getEmployeeById(int id) {
+	public Optional<User> getEmployeeById(int id) {
 		LOGGER.info("EmployeeControllerImpl getEmployeeById method :: START");
 		return employeeLogic.getEmployeeById(id);
 	}
 
 	@Override
-	public ResponseEntity<List<Employee>> getEmployees() {
+	public ResponseEntity<List<User>> getEmployees() {
 		LOGGER.info("EmployeeControllerImpl getEmployees method    :: START");
 		try {
-			List<Employee> employees = employeeLogic.getEmployees();
+			List<User> employees = employeeLogic.getEmployees();
 
 			if (employees.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -49,10 +49,10 @@ public class EmployeeControllerImpl implements EmployeeController {
 	}
 
 	@Override
-	public ResponseEntity<Employee> saveEmployee(Employee employee) {
+	public ResponseEntity<User> saveEmployee(User employee) {
 		LOGGER.info("EmployeeControllerImpl saveEmployee method    :: START");
 		try {
-			Employee emp = employeeLogic.saveEmployee(employee);
+			User emp = employeeLogic.saveEmployee(employee);
 			return new ResponseEntity<>(emp, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -61,13 +61,13 @@ public class EmployeeControllerImpl implements EmployeeController {
 	}
 
 	@Override
-	public ResponseEntity<Employee> updateEmployee(int id, Employee employee) {
+	public ResponseEntity<User> updateEmployee(int id, User employee) {
 		LOGGER.info("EmployeeControllerImpl updateEmployee method    :: START");
 		try {
-			Optional<Employee> employeeData = employeeRepository.findById(id);
+			Optional<User> employeeData = employeeRepository.findById(id);
 
 			if (employeeData.isPresent()) {
-				Employee emp = employeeData.get();
+				User emp = employeeData.get();
 				emp.setEmpName(employee.getEmpName());
 				emp.setEmpPassword(employee.getEmpPassword());
 				emp.setEmpEmail(employee.getEmpEmail());

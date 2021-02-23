@@ -8,32 +8,32 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.home.bean.Employee;
-import com.home.dao.EmployeeDao;
-import com.home.repository.EmployeeRepository;
+import com.home.bean.User;
+import com.home.dao.UserDao;
+import com.home.repository.UserRepository;
 
 @Repository
-public class EmployeeDaoImpl implements EmployeeDao {
+public class UserDaoImpl implements UserDao {
 
 	@Autowired
-	private EmployeeRepository employeeRepository;
+	private UserRepository employeeRepository;
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeDaoImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserDaoImpl.class);
 
 	@Override
-	public List<Employee> getEmployees() {
+	public List<User> getEmployees() {
 		LOGGER.info("EmployeeDaoImpl getEmployees method   :: START");
 		return employeeRepository.findAll();
 	}
 
 	@Override
-	public Optional<Employee> getEmployeeById(int id) {
+	public Optional<User> getEmployeeById(int id) {
 		LOGGER.info("EmployeeDaoImpl getEmployeeById method :: START");
 		return employeeRepository.findById(id);
 	}
 
 	@Override
-	public Employee saveEmployee(Employee emp) {
+	public User saveEmployee(User emp) {
 
 		return employeeRepository.save(emp);
 	}

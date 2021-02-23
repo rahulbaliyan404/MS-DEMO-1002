@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "pgsql_employee")
-public class Employee implements Serializable {
+public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -35,7 +35,7 @@ public class Employee implements Serializable {
 	@Column(name = "Salary")
 	private double empSalary;
 
-	public Employee() {
+	public User() {
 	}
 
 	public int getEmpId() {
