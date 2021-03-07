@@ -15,7 +15,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
-public class TestController {
+public class TokenController {
 
 	@Autowired
 	RestTemplate restTemplate;
