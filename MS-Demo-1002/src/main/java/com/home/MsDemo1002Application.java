@@ -9,7 +9,6 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 public class MsDemo1002Application {
-// This is MS-DEMO-1002 application main method.
 	public static void main(String[] args) {
 		SpringApplication.run(MsDemo1002Application.class, args);
 	}
