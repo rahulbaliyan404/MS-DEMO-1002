@@ -24,6 +24,13 @@ public class UserLogicImpl implements UserLogic {
 	@Override
 	public Optional<User> getEmployeeById(int id) {
 		Optional<User> employee = employeeDao.getEmployeeById(id);
+		byte[] bytesPassword = Base64.getDecoder().decode(employee.get().getEmpPassword());
+		try {
+			String passwordStr = new String(bytesPassword, "UTF-8");
+			employee.get().setEmpPassword(passwordStr);
+		} catch (UnsupportedEncodingException e) {
+			LOGGER.info("UserLogicImpl UnsupportedEncodingException :::: " + e);
+		}
 		return employee;
 	}
 
