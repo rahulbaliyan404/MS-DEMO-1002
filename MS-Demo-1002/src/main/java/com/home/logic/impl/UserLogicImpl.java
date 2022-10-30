@@ -16,10 +16,6 @@ import com.home.logic.UserLogic;
 
 @Component
 public class UserLogicImpl implements UserLogic {
-<<<<<<< HEAD
-
-=======
->>>>>>> c47373fd5d1da7d4bfe8cefe54cdf10cdb8b6b8b
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserLogicImpl.class);
 
 	@Autowired
@@ -33,11 +29,7 @@ public class UserLogicImpl implements UserLogic {
 			String passwordStr = new String(bytesPassword, "UTF-8");
 			employee.get().setEmpPassword(passwordStr);
 		} catch (UnsupportedEncodingException e) {
-<<<<<<< HEAD
-			LOGGER.info("UserLogicImpl getEmployeeById() :::: " + e);
-=======
 			LOGGER.info("UserLogicImpl UnsupportedEncodingException :::: " + e);
->>>>>>> c47373fd5d1da7d4bfe8cefe54cdf10cdb8b6b8b
 		}
 		return employee;
 	}
@@ -51,11 +43,8 @@ public class UserLogicImpl implements UserLogic {
 				String passwordStr = new String(bytesPassword, "UTF-8");
 				user.setEmpPassword(passwordStr);
 			} catch (UnsupportedEncodingException e) {
-<<<<<<< HEAD
-				LOGGER.info("UserLogicImpl getEmployees() :::: " + e);
-=======
+
 				LOGGER.info("UserLogicImpl UnsupportedEncodingException :::: " + e);
->>>>>>> c47373fd5d1da7d4bfe8cefe54cdf10cdb8b6b8b
 			}
 
 		}
@@ -64,16 +53,11 @@ public class UserLogicImpl implements UserLogic {
 
 	@Override
 	public User saveEmployee(User emp) {
-<<<<<<< HEAD
-		String encodePassword = Base64.getEncoder().encodeToString(emp.getEmpPassword().getBytes());
-		emp.setEmpPassword(encodePassword);
-=======
 		LOGGER.info("UserLogicImpl saveEmployee :::: START");
 		if (emp.getEmpPassword() != null) {
 			String encodePassword = Base64.getEncoder().encodeToString(emp.getEmpPassword().getBytes());
 			emp.setEmpPassword(encodePassword);
 		}
->>>>>>> c47373fd5d1da7d4bfe8cefe54cdf10cdb8b6b8b
 		return employeeDao.saveEmployee(emp);
 	}
 
