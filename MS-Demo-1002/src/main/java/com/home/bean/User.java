@@ -34,6 +34,9 @@ public class User implements Serializable {
 
 	@Column(name = "Salary")
 	private double empSalary;
+	
+	@Column(name = "ServiceType")
+	private String serviceType;
 
 	public User() {
 	}
@@ -85,4 +88,13 @@ public class User implements Serializable {
 	public void setEmpSalary(double empSalary) {
 		this.empSalary = empSalary;
 	}
+
+	public String getServiceType() {
+		return serviceType;
+	}
+
+	public void setServiceType(String serviceType) {
+		this.serviceType = serviceType;
+	}
+	
 }
